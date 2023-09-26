@@ -9,8 +9,8 @@ export default async function Posts() {
          { page:1, limit:500, published:true, sortDirection:"desc" }
     const postsList = await axios.post(`${process.env.DOMAIN}/api/post/getAllPost`,reqBody )
     const posts:any = postsList.data;    
-    if (!posts) {
-        return <p className="mt-10 text-center">Sorry, no posts available.</p>
+    if (!posts.length) {
+        return <p className="mt-10 text-center">Sorry, No Posts Available..</p>
     }
 
     return (

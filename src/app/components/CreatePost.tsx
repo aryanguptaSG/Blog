@@ -19,54 +19,50 @@ export default function CreatePost({ params }:any) {
     }
 
     return (
-        <div className="p-3 ">
-            <div className="text-right">
-            <button className="mt-10 bg-button px-10 py-2 rounded-lg" onClick={logout}>Log Out</button>
-            </div>
+        <main className="p-3 ">
+            <section className="text-right">
+                <button className="mt-10 bg-button px-10 py-2 rounded-lg" onClick={logout}>Log Out</button>
+            </section>
             <h1 className="text-2xl mb-5">{pageTitle}</h1>
-            <form onSubmit={handleSubmit}>
-                <div className="flex space-y-10 flex-col">
-                    <div>
+            <form onSubmit={handleSubmit} className="flex space-y-10 flex-col mb-10">
+                    <section>
                         <label htmlFor="title">Title</label>
                         <input id="title" value={title} onChange={e => setTitle(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md" required/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <label htmlFor="description">Description</label>
                         <input id="description" value={description} onChange={e => setDescription(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md" required/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <label htmlFor="slug">Slug</label>
                         <input id="slug" value={slug} onChange={e => setSlug(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md" required/>
-                    </div>
-                    <div>
-                        <div className="flex">
-                            <div className="w-1/2">
-                                <label htmlFor="post">Post</label>
-                                <textarea id="post" value={post} onChange={e => setPost(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md h-full" required/>
-                            </div>
-                            <div className="ml-5 w-1/2">
-                                <p>Preview</p>
-                                <article className="border-white border-solid border h-full rounded-lg px-5 py-2 mt-2  prose prose-xl prose-slate dark:prose-invert">
-                                    <ReactMarkdown>{post}</ReactMarkdown>
-                                </article>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
+                    </section>
+                    <section className="flex">
+                        <section className="w-1/2">
+                            <label htmlFor="post">Post</label>
+                            <textarea id="post" value={post} onChange={e => setPost(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md h-full" required/>
+                        </section>
+                        <section className="ml-5 w-1/2">
+                            <p>Preview</p>
+                            <article className="border-white border-solid border h-full rounded-lg px-5 py-2 mt-2  prose prose-xl prose-slate dark:prose-invert">
+                                <ReactMarkdown>{post}</ReactMarkdown>
+                            </article>
+                        </section>
+                    </section>
+                    <section>
                         <label htmlFor="tags">Tags</label>      
                         <input id="tags" value={tags} onChange={e => settags(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md" required/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <label htmlFor="thumbnial">Thumbnial</label>
                         <input id="thumbnial" value={thumbnial} onChange={e => setThumbnial(e.target.value)} className="text-black w-full mt-2 px-5 py-2 outline-none rounded-md"/>
-                    </div>
-                    <div>
+                    </section>
+                    <section>
                         <label htmlFor="publish">Publish</label>
                         <input id="publish" type="checkbox" checked={publish} onChange={e => setPublish(e.target.checked)} className="ml-2 outline-none" />
-                    </div>
-                </div>
-                <button className="mt-10 bg-button px-10 py-2 rounded-lg" type="submit">{buttonText}</button>
+                    </section>
+                <button className="w-fit mb-20 bg-button px-10 py-2 rounded-lg" type="submit">{buttonText}</button>
             </form>
-        </div>
+        </main>
     );
 }
