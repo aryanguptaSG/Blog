@@ -16,8 +16,8 @@ export default async function Posts({ params: { id } }: Props) {
     });
     const posts:any = postsList.data.posts;
     
-    if (!posts) {
-        return <p className="mt-10 text-center">Sorry, no posts available.</p>
+    if (!posts.length) {
+        return <p className="mt-10 text-center">Sorry, No Posts Available.</p>
     }
 
     return (

@@ -8,7 +8,7 @@ export default function PostPage() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [tags, settags] = useState("");
-    const [publish, setPublish] = useState(true);
+    const [publish, setPublish] = useState(false);
     const [slug, setSlug] = useState("");
     const [thumbnial, setThumbnial] = useState("");
 
