@@ -23,10 +23,10 @@ export default async function Posts({ params: { id } }: Props) {
     return (
      <main className="flex min-h-screen flex-col items-center justify-between p-10">
         <section className="xl:w-8/12 lg:w-8/12">
-            <h2 className="text-3xl font-bold dark:text-white/90 bg-button px-5 rounded-sm">Tags :- {id}</h2>
+            <h2 className="text-3xl font-bold text-white/90 bg-button px-5 rounded-sm">Tags :- {id}</h2>
             <ul className="w-full list-none p-0">
                 {posts.map((post:any,i:any) => (
-                    <ListItem key={i} post={post} />
+                    <ListItem key={i} index={i} post={post} />
                 ))}
             </ul>
         </section>

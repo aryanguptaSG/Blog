@@ -14,11 +14,11 @@ export default async function Posts() {
     }
 
     return (
-        <section className="xl:w-8/12 lg:w-8/12">
-            <h2 className="text-3xl font-bold dark:text-white/90 bg-button px-5 rounded-sm">Articles</h2>
-            <ul className="w-full list-none p-0">
+        <section className="xl:w-10/12 lg:w-9/12">
+            <h2 className="text-3xl font-bold text-white/90 bg-button px-5 rounded-sm">Articles</h2>
+            <ul className="w-full list-none pb-10">
                 {posts.map((post:any,i:any) => (
-                    <ListItem key={i} post={post} />
+                    <ListItem key={i} index={i} post={post} />
                 ))}
             </ul>
         </section>

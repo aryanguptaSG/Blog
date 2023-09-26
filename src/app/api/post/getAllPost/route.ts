@@ -9,8 +9,6 @@ connect()
 export async function POST(request: NextRequest){
     const reqBody = await request.json()
     const {page = 1, limit = 20 , published, sortDirection = 'desc'} = reqBody
-
-    console.log(reqBody);
     const skip = (page - 1) * limit;
   
     try {

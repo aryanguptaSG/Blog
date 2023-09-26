@@ -22,3 +22,42 @@
       }
     }
   }
+
+.left-to-right{
+  animation: leftright 0.5s ease-in-out;
+}
+
+@keyframes leftright {
+  from {
+    transform: translateX(-10%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.right-to-left{
+  animation: rightleft 0.5s ease-in-out;
+}
+
+@keyframes rightleft {
+  from {
+    transform: translateX(10%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.alpha{
+  animation: opac 1s ease-in-out;
+}
+
+@keyframes opac {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

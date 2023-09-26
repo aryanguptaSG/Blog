@@ -12,7 +12,6 @@ type Props = {
 }
 
 export default function PostUpdate({ params: { id } }: Props) {
-    console.log("this is id aryan ->>>>>> ",id);
     const router = useRouter();
     
     const [post, setPost] = useState("");
@@ -34,7 +33,6 @@ export default function PostUpdate({ params: { id } }: Props) {
         setSlug(slug=>slug.trim());
         setThumbnial(thumbnial=>thumbnial.trim());
 
-        console.log(title,description,tags,publish,slug,thumbnial);        
 
         if(!post || !tags || !slug || !title || !description){
             alert("Please fill all the fields");
@@ -50,7 +48,6 @@ export default function PostUpdate({ params: { id } }: Props) {
             slug,
             thumbnial
         }).then(res => {
-            console.log(res);
             router.push(`/post/${slug}`);
         }
         ).catch(err => {
@@ -62,7 +59,6 @@ export default function PostUpdate({ params: { id } }: Props) {
 
     useEffect(() => {
         axios.post(`/api/post/getPostBySlug`, {slug : id}).then(postResp => {
-            console.log("this is res aryan ->>>>>> ",postResp);
             const data = postResp.data.posts;
             if(data.length == 0) notFound();
     
@@ -76,7 +72,7 @@ export default function PostUpdate({ params: { id } }: Props) {
             setThumbnial(data[0].thumbnial);
     
         }).catch(err => {
-            console.log("This is Error",err);
+            console.log("This is Error : ",err);
         })
     }, [])
 

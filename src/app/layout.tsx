@@ -1,10 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import { cookies } from "next/headers";
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Aryan Gupta - Blog',
@@ -16,10 +15,11 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const theme = cookies().get("theme")?.value ||'dark'
   return (
-    <html lang="en">
-      <body className={inter.className+" bg-dark-gray text-white relative min-h-screen"}>
-        <header>
+    <html className={`${theme}`} lang="en">
+      <body className={" bg-white dark:bg-slate-800 text-slate-900 dark:text-white relative min-h-screen"}>
+        <header className='sticky top-0 z-10'>
           <Navbar />
         </header>
           {children}
