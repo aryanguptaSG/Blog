@@ -8,10 +8,7 @@ connect()
 
 export async function POST(request: NextRequest){
     const reqBody = await request.json()
-    const {slug=""} = reqBody
-
-    console.log("This is Body ->>>>",reqBody);
-    
+    const {slug=""} = reqBody    
 
     try {
       const posts = await Post.find({ slug: slug })

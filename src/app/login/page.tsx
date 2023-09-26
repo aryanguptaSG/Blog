@@ -7,21 +7,15 @@ export default function LogIn() {
     
     const logIn = (e:any) => {
         e.preventDefault();
-        console.log("LogIn");
         if(!e.target[0].value || !e.target[1].value){
             alert("Please fill all the fields");
             return;
         }
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
-        console.log(process.env.USERNAME);
-        console.log(process.env.PASSWORD);
         
          axios.post("/api/login", {
             username:e.target[0].value,
             password:e.target[1].value
         }).then(res => {
-            console.log(res);
             router.push("/");
         }
         ).catch(err => {

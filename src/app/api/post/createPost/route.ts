@@ -10,9 +10,6 @@ export async function POST(request: NextRequest){
     try {
         const reqBody = await request.json()
         const {title, description,  post, tags, slug, published, thumbnial=""} = reqBody
-
-        console.log(reqBody);
-
         const newPost = new Post({
             title,
             description,
@@ -24,7 +21,6 @@ export async function POST(request: NextRequest){
         })
 
         const savedPost = await newPost.save()
-        console.log(savedPost);
 
         return NextResponse.json({
             message: "Post created successfully",

@@ -59,9 +59,9 @@ Before running the project, make sure you have the following software installed 
    ```
 4. Create a .env file in the root directory and configure the following environment variables:
     ```bash 
-    PORT=3000
-    MONGODB_URI=your-mongodb-connection-string
-    SECRET_KEY=your-secret-key
+   MONGO_URI= https://dummyurl.com
+   TOKEN_SECRET=dummytoken
+   DOMAIN=http://localhost:3000
     ```
 * PORT: The port on which the application will run.
 * MONGODB_URI: Your MongoDB connection string.
