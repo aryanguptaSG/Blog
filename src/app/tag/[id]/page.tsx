@@ -1,9 +1,19 @@
 import ListItem from "../../components/ListItem";
 import axios from "axios";
+import { Metadata } from "next";
 
 type Props = {
     params: {
         id: string
+    }
+}
+
+export const revalidate = 86400;
+
+export async function generateMetadata({ params: { id } }: Props): Promise<Metadata> {
+    return {
+        title: 'Tag - '+id,
+    description: 'Explore the latest in technology trends, innovation, and insights on Aryan Gupta - Blogs. Our technical blogs cover a wide range of topics, from artificial intelligence to quantum computing, providing you with in-depth knowledge and practical tips to stay ahead in the tech world.',
     }
 }
 

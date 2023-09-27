@@ -4,8 +4,9 @@ import Link from "next/link"
 import 'highlight.js/styles/github-dark.css';
 import axios from "axios";
 import { cookies } from "next/headers";
+import type { Metadata } from 'next';
 
-export const revalidate = 86400
+export const revalidate = 86400;
 
 type Props = {
     params: {
@@ -13,6 +14,31 @@ type Props = {
     }
 }
 
+export async function generateMetadata({ params: { id } }: Props): Promise<Metadata> {
+    const postResp:any = await axios.post(`${process.env.DOMAIN}/api/post/getPostBySlug`, {slug : id});
+    const data = postResp.data.posts;
+    if(data.length == 0){
+        return {
+            title: "404",
+            description: "Page Not Found",
+        }
+    }
+    return {
+        title: data[0].title,
+        description: data[0].description,
+        alternates: {
+            canonical: `/post/${data[0].slug}`
+        },
+        openGraph: {
+            title: data[0].title,
+            description: data[0].description,
+            url: `/post/${data[0].slug}`,
+            type: "article",
+            siteName: "Aryan Gupta - Blog",
+            locale: "en_US",
+        }
+    }
+}
 
 export default async function Post({ params: { id } }: Props) {
 

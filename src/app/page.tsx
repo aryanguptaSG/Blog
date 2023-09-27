@@ -2,6 +2,8 @@ import Posts from "./components/Posts";
 import { cookies } from "next/headers";
 import Link from "next/link"
 
+export const revalidate = 86400;
+
 export default function Home() {  
   return (
     <main className="flex flex-col items-center justify-between xl:p-10 lg:p-10 p-5">

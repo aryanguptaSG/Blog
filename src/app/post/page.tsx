@@ -3,6 +3,9 @@ import { useState, FormEvent} from "react";
 import axios from "axios";
 import CreatePost from "../components/CreatePost";
 
+export const revalidate = 86400;
+
+
 export default function PostPage() {
     const [post, setPost] = useState("");
     const [title, setTitle] = useState("");
