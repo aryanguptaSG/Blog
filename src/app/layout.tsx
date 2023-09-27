@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 
 
 export const metadata: Metadata = {
-  metadataBase: new URL("http://localhost:3000"),
+  metadataBase: new URL(process.env.DOMAIN || "http://localhost:3000"),
   title: 'Aryan Gupta - Blog',
   description: 'Explore the latest in technology trends, innovation, and insights on Aryan Gupta - Blogs. Our technical blogs cover a wide range of topics, from artificial intelligence to quantum computing, providing you with in-depth knowledge and practical tips to stay ahead in the tech world.',
   authors: [{ name: 'Aryan Gupta' }],
